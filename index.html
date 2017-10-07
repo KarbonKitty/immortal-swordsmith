@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Immortal Swordsmith</title>
+</head>
+
+<body>
+  <div id="game">
+
+    <h1>Immortal Swordsmith</h1>
+
+    <div class="container">
+
+      <div class="col3">
+        <div class="col2">
+          <h2>Actions</h2>
+
+          <div class="btn-container">
+            <button class="btn-lg btn-default" @click="gatherMaterial">Gather {{ state.currentMaterial.name }}</button>
+          </div>
+
+          <div class="btn-container">
+            <button class="btn-lg btn-default" @click="trainWithMaterial">Train with {{ state.currentMaterial.name }}</button>
+          </div>
+
+          <div class="btn-container">
+            <button class="btn-lg btn-default" @click="trainWithDesign">Train with {{ state.currentDesign.name }}</button>
+          </div>
+
+          <div class="btn-container">
+            <button class="btn-lg btn-main" @click="forgeSword">Forge: {{ state.currentMaterial.name }} {{ state.currentDesign.name }}</button>
+          </div>
+        </div>
+
+        <div class="col2">
+          <h2>Basic data</h2>
+          <ul>
+            <li>Turn: {{ state.currentTurn }} / {{ state.lastTurn }}</li>
+            <li>Power of the heroes: {{ state.heroPower | round }}</li>
+            <li>Power of the enemy: {{ state.evilPower }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col3">
+        <h2>Materials</h2>
+
+        <h3>{{ state.currentMaterial.name }}</h3>
+
+        <p>{{ state.currentMaterial.desc }}</p>
+
+        <p><strong>Current power: {{ state.currentMaterial.power | round }}</strong></p>
+        <p>Current level: {{ state.currentMaterial.level }}</p>
+        <p>XP: {{ state.currentMaterial.XP }} / 100</p>
+
+        <h3>All materials</h3>
+
+        <ul>
+          <li v-for="(material, id) in materials" :class="{ selected: state.currentMaterial == material }">
+            {{ material.name }} ({{ material.power | round }} power): {{ material.amount }} oz.
+            <button class="btn-default" style="float: right" @click="selectMaterial(id)">select</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col3">
+        <h2>Designs</h2>
+
+        <h3>{{ state.currentDesign.name }}</h3>
+
+        <p>{{ state.currentDesign.desc }}</p>
+
+        <p>Expected power: {{ state.currentDesign.minPower }} - {{ state.currentDesign.maxPower }}</p>
+        <p>Amount of material used: {{ state.currentDesign.materialUsed }}</p>
+        <p><strong>XP: {{ state.currentDesign.XP }}</strong></p>
+
+        <h4>Upgrades: </h4>
+
+        <div v-for="power in state.currentDesign.powers" v-if="!power.isBase && power.isVisible">
+          <p><strong>{{ power.name }}</strong> <button class="btn-default" style="float: right" @click="state.currentDesign.buyPower(power)">{{ power.isBought ? "Bought!" : "Buy for: " + power.cost }}</button></p>
+          <p>Bonus power: {{ power.constPower }} - {{ power.constPower + power.randomPower }}</p>
+        </div>
+
+        <h3>All designs</h3>
+
+        <ul>
+          <li v-for="(design, id) in designs" :class="{ selected: state.currentDesign == design }">
+            {{ design.name }}: {{ design.minPower }} - {{ design.maxPower }}
+            <button class="btn-default" style="float: right" @click="selectDesign(id)">select</button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="src/pubsub.js"></script>
+  <script src="src/data.js"></script>
+  <script src="src/main.js"></script>
+</body>

@@ -1,0 +1,97 @@
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+html {
+  background-color: $base03;
+  color: $base0;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  border: 1px solid $base01;
+  line-height: 2em;
+}
+
+.btn-lg {
+  width: 100%;
+  padding: 0;
+  font-size: 125%;
+}
+
+.btn-default {
+  background-color: $base02;
+  color: $blue;
+}
+
+.btn-main {
+  background-color: $base02;
+  color: $green;
+}
+
+.material-table {
+  width: 100%;
+}
+
+tr:nth-child(2n) {
+  background-color: $base02;
+}
+
+.col2 {
+  width: 50%;
+  float: left;
+}
+
+.col3 {
+  width: 33%;
+  float: left;
+}
+
+.container {
+  width: 100%;
+}
+
+select {
+  padding: 0.2em;
+  min-width: 100px;
+  background-color: $base02;
+  color: $red;
+  font-style: bold;
+}
+
+.btn-container {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+li {
+  margin-right: 5rem;
+}
+
+ul li {
+  line-height: 200%;
+}
+
+.selected {
+  background-color: $base02;
+}
+
+button:focus {
+  outline: 0;
+}
