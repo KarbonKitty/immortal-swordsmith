@@ -1,0 +1,8 @@
+{
+  "name": "immortal-swordsmith",
+  "version": "0.1.0",
+  "description": "Turn-based incremental game",
+  "private": true,
+  "author": "KarbonKitty",
+  "license": "MIT"
+}

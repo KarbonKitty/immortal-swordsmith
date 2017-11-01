@@ -188,3 +188,5 @@ let materials = {
 let designs = {
   gladius: designStorage.gladius
 }
+
+export { designs, materials, designLocks, materialLocks, designStorage, powerStorage, materialStorage, ILock, MaterialLock, DesignLock, DesignPower, Design, Material, randomInt };
