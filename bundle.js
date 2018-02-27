@@ -4,7 +4,7 @@
 function randomInt(minValue, maxValue) {
     return Math.floor(Math.random() * (maxValue + 1)) + minValue;
 }
-var Material = (function () {
+var Material = /** @class */ (function () {
     function Material(name, desc, power, visible) {
         this.name = name;
         this.desc = desc;
@@ -44,7 +44,7 @@ var Material = (function () {
     });
     return Material;
 }());
-var DesignPower = (function () {
+var DesignPower = /** @class */ (function () {
     function DesignPower(name, cost, visibilityCost, constPower, randomPower, isBought, isVisible, isBase) {
         if (isVisible === void 0) { isVisible = false; }
         if (isBase === void 0) { isBase = false; }
@@ -59,7 +59,7 @@ var DesignPower = (function () {
     }
     return DesignPower;
 }());
-var Design = (function () {
+var Design = /** @class */ (function () {
     function Design(name, desc, materialUsed, powers) {
         this.name = name;
         this.desc = desc;
@@ -121,13 +121,13 @@ var Design = (function () {
     };
     return Design;
 }());
-var MaterialLock = (function () {
+var MaterialLock = /** @class */ (function () {
     function MaterialLock(material, level) {
         this.isOpen = function () { return material.level >= level; };
     }
     return MaterialLock;
 }());
-var DesignLock = (function () {
+var DesignLock = /** @class */ (function () {
     function DesignLock(power) {
         this.isOpen = function () { return power.isBought; };
     }

@@ -2,7 +2,8 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "target": "es5",
-    "module": "es6"
+    "module": "es6",
+    "outDir": "compiled"
   },
   "exclude": [
     "node_modules"
