@@ -4,6 +4,7 @@
 function randomInt(minValue, maxValue) {
     return Math.floor(Math.random() * (maxValue + 1)) + minValue;
 }
+
 var Material = /** @class */ (function () {
     function Material(name, desc, power, visible) {
         this.name = name;
@@ -133,6 +134,7 @@ var DesignLock = /** @class */ (function () {
     }
     return DesignLock;
 }());
+
 var materialStorage = {
     copper: new Material("Copper", "Soft, malleable metal. Not a perfect material for a sword, but easy enough to find - and to work with.", 0.3),
     bronze: new Material("Bronze", "Much harder than copper, and still easy to work with - first metal that makes swords really viable.", 0.5),
